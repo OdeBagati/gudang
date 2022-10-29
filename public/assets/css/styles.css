@@ -1,0 +1,38 @@
+/* UTILITIES */
+:root{
+    --white: #ffffff;
+    --black: #252525;
+    --gold: #f5c72c;
+    --blue: #016db3;
+    --light-blue: rgb(5, 121, 199);
+    --light-grey: #D3D3D3;
+    --old-red: #AF2413;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* BODY */
+.cover{
+    height: 30vh;
+    background-position: left center;
+    background-color: var(--light-grey);
+    background-size: cover;
+    background-repeat:no-repeat;
+    margin-bottom: 0rem;
+}
+    .cover h1{
+        text-transform: uppercase;
+        color: var(--black);
+    }
+
+.span-title{
+	letter-spacing: 0.2rem;
+	margin-bottom: 2rem;
+    color: var(--black);
+}
+	.span-title span{
+		border-bottom:solid 0.2rem var(--gold);
+	}
