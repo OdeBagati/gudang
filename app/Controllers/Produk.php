@@ -2,72 +2,51 @@
 
 namespace App\Controllers;
 
-class Produk extends BaseController
+class Client extends BaseController
 {
     public function index()
     {
-        $data['dataProduk'] = $this->objProduk->getAllData();
-        $data['page'] = 'produk_list';
+        $data['dataWarna'] = $this->objClient->getAllData();
+        $data['page'] = 'client_list';
 
         return view('mainpage',$data);
     }
 
-    function save($productId=false)
+    function save($idClient=false)
     {
-        if($productId!=false)
+        if($idClient!=false)
         {
-            $paramProduk = array('productId'=>$productId);
-            $list = $this->objProduk->getDataBy($paramProduk)->getRow();
+            $paramClient = array('idClient'=>$idClient);
+            $list = $this->objClient->getDataBy($paramClient)->getRow();
 
-            $data['productId'] = $list->productId;
-            $data['productPo'] = $list->productPo;
-            $data['productSo' ]= $list->productSo;
-            $data['productLineSKU'] = $list->productLineSKU;
-            $data['productSKU'] = $list->productSKU;
-            $data['productName'] = $list->productName;
-            $data['productFamily'] = $list->productFamily;
-            $data['productFactory'] = $list->productFactory;
-            $data['productSize' ]= $list->productSize;
-            $data['productColor'] = $list->productColor;
-            $data['productBrand'] = $list->productBrand;
-            $data['productQty'] = $list->productQty;
-            $data['shipDate'] = $list->shipDate;
+            $data['idClient'] = $list->idClient;
+            $data['namaClient'] = $list->clientName;
         }
 
         if($this->request->getMethod()=="post")
         {
             $dataSave=array(
-                'productId' => '',
-                'productPo' => $this->request->getPost('productPo'),
-                'productSo' => $this->request->getPost('productSo'),
-                'productLineSKU' => $this->request->getPost('productLineSKU'),
-                'productSKU' => $this->request->getPost('productSKU'),
-                'productName' => $this->request->getPost('productName'),
-                'productFamily' => $this->request->getPost('productFamily'),
-                'productFactory' => $this->request->getPost('productFactory'),
-                'productSize' => $this->request->getPost('productSize'),
-                'productColor' => $this->request->getPost('productColor'),
-                'productBrand' => $this->request->getPost('productBrand'),
-                'productQty' => $this->request->getPost('productQty'),
-                'shipDate' => $this->request->getPost('shipDate'),
+                'idClient' => '',
+                'namaClient' => $this->request->getPost('namaClient'),
+                'createdAt' => date('d-m-Y H:i:s'),
             );
 
-            $productId = $this->objProduk->saveData($dataSave);
+            $id = $this->objClient->saveData($dataSave);
 
-            dd($productId);
+            dd($id);
         }
         else
         {
-            $data['page'] = 'produk_form';
+            $data['page'] = 'client_form';
 
             return view('mainpage',$data);
         }
     }
 
-    function delete($productId)
+    function delete($idClient)
     {
-        $paramProduk=array('productId'=>$productId);
-        $this->objProduk->deleteData($paramProduk);
+        $paramClient=array('idClient'=>$idClient);
+        $this->objClient->deleteData($paramClient);
 
         $this->session->setFlashdata('message','URL berhasil dihapus');
         return redirect()->back();
