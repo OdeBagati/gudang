@@ -2,42 +2,42 @@
 
 namespace App\Controllers;
 
-class Client extends BaseController
+class Produk extends BaseController
 {
     public function index()
     {
-        $data['dataWarna'] = $this->objClient->getAllData();
-        $data['page'] = 'client_list';
+        $data['dataProduk'] = $this->objProduk->getAllData();
+        $data['page'] = 'produk_list';
 
         return view('mainpage',$data);
     }
 
-    function save($idClient=false)
+    function save($idproduct=false)
     {
-        if($idClient!=false)
+        if($idproduct!=false)
         {
-            $paramClient = array('idClient'=>$idClient);
-            $list = $this->objClient->getDataBy($paramClient)->getRow();
+            $paramProduct = array('idproduct'=>$idproduct);
+            $list = $this->objProduk->getDataBy($paramProduk)->getRow();
 
-            $data['idClient'] = $list->idClient;
-            $data['namaClient'] = $list->clientName;
+            $data['idproduct'] = $list->idproduct;
+            $data['productName'] = $list->productName;
         }
 
         if($this->request->getMethod()=="post")
         {
             $dataSave=array(
-                'idClient' => '',
-                'namaClient' => $this->request->getPost('namaClient'),
-                'createdAt' => date('d-m-Y H:i:s'),
+                'idproduct' => '',
+                'productName' => $this->request->getPost('productName'),
+                'prefix' => $this->request->getPost('prefix'),
             );
 
-            $id = $this->objClient->saveData($dataSave);
+            $idproduct = $this->objProduk->saveData($dataSave);
 
-            dd($id);
+            dd($idproduct);
         }
         else
         {
-            $data['page'] = 'client_form';
+            $data['page'] = 'produk_form';
 
             return view('mainpage',$data);
         }

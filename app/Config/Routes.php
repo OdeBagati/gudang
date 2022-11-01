@@ -39,7 +39,7 @@ $routes->get('/', 'Barcode::index');
 $routes->get('/save-barcode', 'Barcode::save');
 $routes->get('/preview', 'Barcode::preview');
 $routes->get('/produk', 'Detailproduk::index');
-$routes->get('/saveproduk', 'Produk::save');
+$routes->get('/save-produk', 'Produk::save');
 $routes->get('/save-detail-produk', 'Detailproduk::save');
 $routes->get('/warna', 'Warna::index');
 $routes->get('/save-warna', 'Warna::save');

@@ -12,6 +12,7 @@ use Psr\Log\LoggerInterface;
 use App\Models\OperatorModel;
 use App\Models\ProduksiModel;
 use App\Models\ProdukModel;
+use App\Models\DetailprodukModel;
 use App\Models\ClientModel;
 use App\Models\FamilyModel;
 use App\Models\PrintModel;
@@ -61,6 +62,7 @@ abstract class BaseController extends Controller
         $this->objOperator = new OperatorModel;
         $this->objProduksi = new ProduksiModel;
         $this->objProduk = new ProdukModel;
+        $this->objDetailproduk = new DetailprodukModel;
         $this->objClient = new ClientModel;
         $this->objFamily = new FamilyModel;
         $this->objPrint = new PrintModel;

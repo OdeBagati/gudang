@@ -20,7 +20,7 @@ class Client extends BaseController
             $list = $this->objClient->getDataBy($paramClient)->getRow();
 
             $data['idClient'] = $list->idClient;
-            $data['namaClient'] = $list->clientName;
+            $data['namaClient'] = $list->namaClient;
         }
 
         if($this->request->getMethod()=="post")
