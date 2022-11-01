@@ -4,40 +4,54 @@ use CodeIgniter\Model;
 
 class ProdukModel extends Model
 {
-	protected $table      = 'produkTable';
-    protected $primaryKey = 'productId';
+	protected $table      = 'productTable';
+    protected $primaryKey = 'idproduct';
     protected $builder;
     protected $db;
+
+    private $product = array();
 
     function __construct()
     {
     	$this->db      = \Config\Database::connect();
-		$this->builder = $this->db->table('produkTable');
+		$this->builder = $this->db->table('productTable');
     }
 
     function getAllData()
     {
-        $this->builder->join('familyTable','familyTable.id=produkTable.productFamily');
-        $this->builder->join('printTable','printTable.id=produkTable.productColor');
         return $this->builder->get();
     }
 
     function getDataBy($param)
     {
-        $this->builder->join('familyTable','familyTable.id=produkTable.productFamily');
-        $this->builder->join('printTable','printTable.id=produkTable.productColor');
         $this->builder->where($param);
 
         return $this->builder->get();
     }
 
+    function getWarna()
+    {
+        $productlist = $this->builder->get();
+
+        foreach($productlist->getResult() as $listProduct)
+        {
+            $this->product[]=array(
+                'idproduct'=>$listProduct->idproduct,
+                'productName'=>$listProduct->productName,
+                'prefix'=>$listProduct->prefix,
+            );
+        }
+
+        return $this->product;
+    }
+
     function saveData($arrSave)
     {
-        if($arrSave['productId']>0)
+        if($arrSave['idproduct']>0)
         {
-            $this->builder->where('productId',$arrSave['productId']);
+            $this->builder->where('idproduct',$arrSave['idproduct']);
             $this->builder->update($arrSave);
-            return $arrSave['productId'];
+            return $arrSave['idproduct'];
         }
         else
         {

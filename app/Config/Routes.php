@@ -38,8 +38,9 @@ $routes->set404Override();
 $routes->get('/', 'Barcode::index');
 $routes->get('/save-barcode', 'Barcode::save');
 $routes->get('/preview', 'Barcode::preview');
-$routes->get('/produk', 'Produk::index');
-$routes->get('/save-produk', 'Produk::save');
+$routes->get('/produk', 'Detailproduk::index');
+$routes->get('/saveproduk', 'Produk::save');
+$routes->get('/save-detail-produk', 'Detailproduk::save');
 $routes->get('/warna', 'Warna::index');
 $routes->get('/save-warna', 'Warna::save');
 $routes->get('/save-client', 'Client::save');
@@ -48,6 +49,8 @@ $routes->get('/save-barcode/(:num)', 'Barcode::save/$1');
 $routes->get('/delete-barcode/(:num)', 'Barcode::delete/$1');
 $routes->get('/save-produk/(:num)', 'Produk::save/$1');
 $routes->get('/delete-produk/(:num)', 'Produk::delete/$1');
+$routes->get('/save-detail-produk/(:num)', 'Detailproduk::save/$1');
+$routes->get('/delete-detail-produk/(:num)', 'Detailproduk::delete/$1');
 $routes->get('/save-warna/(:num)', 'Warna::save/$1');
 $routes->get('/delete-warna/(:num)', 'Warna::delete/$1');
 $routes->get('/save-client/(:num)', 'Client::save/$1');
@@ -57,6 +60,7 @@ $routes->post('/save-barcode', 'Barcode::save');
 $routes->post('/preview', 'Barcode::preview');
 $routes->post('/save-warna', 'Warna::save');
 $routes->post('/save-produk', 'Produk::save');
+$routes->post('/save-detail-produk', 'Detailproduk::save');
 $routes->post('/save-client', 'Client::save');
 
 /*

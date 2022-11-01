@@ -28,12 +28,12 @@
                         
                         <div class="form-floating mb-3">
                             <input type="text" value="<?= isset($idClient)?$idClient:set_value('idClient'); ?>" name="idClient" class="form-control" id="floatingInput" placeholder="Input ID Number here" hidden>
-                            <label for="floatingInput">ID Warna</label>
+                            <label for="floatingInput">ID Client</label>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input type="text" value="<?= isset($namaClient)?$namaClient:set_value('namaClient'); ?>" name="namaClient" class="form-control" id="floatingInput" placeholder="Input ID Number here">
-                            <label for="floatingInput">Nama Warna</label>
+                            <label for="floatingInput">Nama Client</label>
                         </div>
 
                         <div class="justify-content-center">
