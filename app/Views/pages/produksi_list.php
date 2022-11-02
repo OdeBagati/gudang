@@ -38,7 +38,7 @@
                                     <?= 
                                         anchor('save-barcode'.'/'.$listProduksi->productionId,'Update',array('class'=>'btn btn-success btn-sm'));
                                         echo "&nbsp;"; 
-                                        echo anchor('delete-barcide'.'/'.$listProduksi->productionId,'Delete',array('class'=>'btn btn-danger btn-sm'));
+                                        echo anchor('delete-barcode'.'/'.$listProduksi->productionId,'Delete',array('class'=>'btn btn-danger btn-sm'));
                                     ?>
                                 </td>
                             </tr>
