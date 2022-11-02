@@ -12,7 +12,7 @@
 
         <div class="card-body">
 
-            <table id="table" class="table table-striped">
+            <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No.</th>
