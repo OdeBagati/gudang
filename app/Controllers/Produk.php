@@ -44,10 +44,10 @@ class Produk extends BaseController
         }
     }
 
-    function delete($idClient)
+    function delete($idproduct)
     {
-        $paramClient=array('idClient'=>$idClient);
-        $this->objClient->deleteData($paramClient);
+        $paramProduct=array('idproduct'=>$idproduct);
+        $this->objProduk->deleteData($paramProduct);
 
         $this->session->setFlashdata('message','URL berhasil dihapus');
         return redirect()->back();
