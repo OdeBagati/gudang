@@ -16,24 +16,25 @@ class Produk extends BaseController
     {
         if($idproduct!=false)
         {
-            $paramProduct = array('idproduct'=>$idproduct);
+            $paramProduk = array('idproduct'=>$idproduct);
             $list = $this->objProduk->getDataBy($paramProduk)->getRow();
 
             $data['idproduct'] = $list->idproduct;
             $data['productName'] = $list->productName;
+            $data['prefix'] = $list->prefix;
         }
 
         if($this->request->getMethod()=="post")
         {
             $dataSave=array(
-                'idproduct' => '',
+                'idproduct' => $this->request->getPost('idproduct'),
                 'productName' => $this->request->getPost('productName'),
                 'prefix' => $this->request->getPost('prefix'),
             );
 
             $idproduct = $this->objProduk->saveData($dataSave);
 
-            dd($idproduct);
+            return redirect()->to(base_url().'/produk');
         }
         else
         {
