@@ -7,7 +7,7 @@
     <div class="card">
 
         <div class="card-header">
-            <?= anchor('save-client','Add Data',array('class'=>'btn btn-info text-white')); ?>
+            <?= anchor('save-warna','Add Data',array('class'=>'btn btn-info text-white')); ?>
         </div>
 
         <div class="card-body">
@@ -16,7 +16,8 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Nama Client</th>
+                        <th>Print Name</th>
+                        <th>Prefix</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -28,11 +29,12 @@
                             <tr>
                                 <td><?= $no; ?></td>
                                 <td><?= $listWarna->printName; ?></td>
+                                <td><?= $listWarna->printPrefix; ?></td>
                                 <td>
                                     <?= 
-                                        anchor('save-warna'.'/'.$listClient->id,'Update',array('class'=>'btn btn-success btn-sm'));
+                                        anchor('save-warna'.'/'.$listWarna->id,'Update',array('class'=>'btn btn-success btn-sm'));
                                         echo "&nbsp;"; 
-                                        echo anchor('delete-warna'.'/'.$listClient->id,'Delete',array('class'=>'btn btn-danger btn-sm'));
+                                        echo anchor('delete-warna'.'/'.$listWarna->id,'Delete',array('class'=>'btn btn-danger btn-sm'));
                                     ?>
                                 </td>
                             </tr>

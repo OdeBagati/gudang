@@ -17,28 +17,30 @@ class Warna extends BaseController
         if($id!=false)
         {
             $paramWarna = array('id'=>$id);
-            $list = $this->objWarna->getDataBy($paramWarna)->getRow();
+            $list = $this->objPrint->getDataBy($paramWarna)->getRow();
 
             $data['id'] = $list->id;
             $data['printName'] = $list->printName;
+            $data['printPrefix'] = $list->printPrefix;
         }
 
         if($this->request->getMethod()=="post")
         {
             $dataSave=array(
-                'id' => '',
+                'id' => $this->request->getPost('id'),
                 'printName' => $this->request->getPost('printName'),
-                'createdAt' => date('d-m-Y H:i:s'),
-                'updatedAt' => date('d-m-Y H:i:s'),
+                'printPrefix' => $this->request->getPost('printPrefix'),
+                'createdAt' => date('Y-m-d H:i:s'),
+                'updatedAt' => date('Y-m-d H:i:s'),
             );
 
             $id = $this->objPrint->saveData($dataSave);
 
-            dd($id);
+            return redirect()->to(base_url().'/warna');
         }
         else
         {
-            $data['page'] = 'produk_form';
+            $data['page'] = 'warna_form';
 
             return view('mainpage',$data);
         }

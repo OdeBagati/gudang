@@ -27,13 +27,18 @@
                         <?= csrf_field(); ?>
                         
                         <div class="form-floating mb-3">
-                            <input type="text" value="<?= isset($id)?$id:set_value('id'); ?>" name="id" class="form-control" id="floatingInput" placeholder="Input ID Number here" hidden>
+                            <input type="text" value="<?= isset($id)?$id:set_value('id'); ?>" name="id" class="form-control" id="floatingInput" placeholder="Input ID Print here" hidden>
                             <label for="floatingInput">ID Warna</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" value="<?= isset($printName)?$printName:set_value('printName'); ?>" name="printName" class="form-control" id="floatingInput" placeholder="Input ID Number here">
+                            <input type="text" value="<?= isset($printName)?$printName:set_value('printName'); ?>" name="printName" class="form-control" id="floatingInput" placeholder="Input Print Name here">
                             <label for="floatingInput">Nama Warna</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" value="<?= isset($printPrefix)?$printPrefix:set_value('printPrefix'); ?>" name="printPrefix" class="form-control" id="floatingInput" placeholder="Input Prefix here">
+                            <label for="floatingInput">Prefix</label>
                         </div>
 
                         <div class="justify-content-center">
