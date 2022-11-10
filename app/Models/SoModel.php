@@ -2,19 +2,19 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-class ClientModel extends Model
+class SoModel extends Model
 {
-	protected $table      = 'clientTable';
-    protected $primaryKey = 'idClient';
+	protected $table      = 'soTable';
+    protected $primaryKey = 'idSo';
     protected $builder;
     protected $db;
 
-    private $client = array();
+    private $so = array();
 
     function __construct()
     {
     	$this->db      = \Config\Database::connect();
-		$this->builder = $this->db->table('clientTable');
+		$this->builder = $this->db->table('soTable');
     }
 
     function getAllData()
@@ -29,15 +29,15 @@ class ClientModel extends Model
         return $this->builder->get();
     }
 
-    function getClient()
+    function getSo()
     {
-        $clientlist = $this->builder->get();
+        $solist = $this->builder->get();
 
-        foreach($clientlist->getResult() as $listClient)
+        foreach($solist->getResult() as $listSo)
         {
-            $this->client[]=array(
-                'idClient'=>$listClient->idClient,
-                'namaClient'=>$listClient->namaClient
+            $this->so[]=array(
+                'idSo'=>$listSo->idSo,
+                'nomorSo'=>$listSo->nomorSo
             );
         }
 
@@ -46,11 +46,11 @@ class ClientModel extends Model
 
     function saveData($arrSave)
     {
-        if($arrSave['idClient']>0)
+        if($arrSave['idSo']>0)
         {
-            $this->builder->where('idClient',$arrSave['idClient']);
+            $this->builder->where('idSo',$arrSave['idSo']);
             $this->builder->update($arrSave);
-            return $arrSave['idClient'];
+            return $arrSave['idSo'];
         }
         else
         {

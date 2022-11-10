@@ -29,7 +29,7 @@ class ProdukModel extends Model
         return $this->builder->get();
     }
 
-    function getWarna()
+    function getProduk()
     {
         $productlist = $this->builder->get();
 

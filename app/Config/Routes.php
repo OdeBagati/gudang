@@ -45,6 +45,7 @@ $routes->get('/save-detail-produk', 'Detailproduk::save');
 $routes->get('/warna', 'Warna::index');
 $routes->get('/save-warna', 'Warna::save');
 $routes->get('/save-client', 'Client::save');
+$routes->get('/client', 'Client::index');
 
 $routes->get('/save-barcode/(:num)', 'Barcode::save/$1');
 $routes->get('/delete-barcode/(:num)', 'Barcode::delete/$1');
