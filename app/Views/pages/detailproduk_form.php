@@ -65,7 +65,7 @@
 
                                         foreach ($dataWarna as $index => $listWarna)
                                         {
-                                            if(isset($operatorId)&&$operatorId==$listWarna['id'])
+                                            if(isset($productColor)&&$productColor==$listWarna['id'])
                                             {
                                                 echo '<option value="'.$listWarna['id'].'" selected>'.$listWarna['printName'].'</option>';
                                             }
@@ -97,7 +97,7 @@
 
                                         foreach ($dataSo as $index => $listSo)
                                         {
-                                            if(isset($idSo)&&$idSo==$listSo['idSo'])
+                                            if(isset($productSo)&&$productSo==$listSo['idSo'])
                                             {
                                                 echo '<option value="'.$listSo['idSo'].'" selected>'.$listSo['nomorSo'].'</option>';
                                             }
@@ -136,7 +136,7 @@
 
                                             foreach ($dataFamily as $index => $listFamily)
                                             {
-                                                if(isset($id)&&$id==$listFamily['id'])
+                                                if(isset($productFamily)&&$productFamily==$listFamily['id'])
                                                 {
                                                     echo '<option value="'.$listFamily['id'].'" selected>'.$listFamily['familyName'].'</option>';
                                                 }
@@ -168,7 +168,7 @@
 
                                             foreach ($dataClient as $index => $listClient)
                                             {
-                                                if(isset($idClient)&&$idClient==$listClient['idClient'])
+                                                if(isset($productBrand)&&$productBrand==$listClient['idClient'])
                                                 {
                                                     echo '<option value="'.$listClient['idClient'].'" selected>'.$listClient['namaClient'].'</option>';
                                                 }
@@ -214,6 +214,12 @@
                                 <div class="form-floating my-3">
                                     <input type="date" name="shipDate" value="<?= isset($shipDate)?$shipDate:set_value('shipDate'); ?>" class="form-control" id="floatingInput" placeholder="Input Brand Produk">
                                     <label for="floatingInput">Ship Date</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="justify-content-center">
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Save Data">
                                 </div>
                             </div>
 

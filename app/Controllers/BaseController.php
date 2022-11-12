@@ -16,6 +16,7 @@ use App\Models\DetailprodukModel;
 use App\Models\ClientModel;
 use App\Models\FamilyModel;
 use App\Models\PrintModel;
+use App\Models\SoModel;
 
 /**
  * Class BaseController
@@ -66,6 +67,7 @@ abstract class BaseController extends Controller
         $this->objClient = new ClientModel;
         $this->objFamily = new FamilyModel;
         $this->objPrint = new PrintModel;
+        $this->objSo = new SoModel;
 
         // E.g.: $this->session = \Config\Services::session();
     }

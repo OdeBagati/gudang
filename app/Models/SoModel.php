@@ -41,7 +41,7 @@ class SoModel extends Model
             );
         }
 
-        return $this->client;
+        return $this->so;
     }
 
     function saveData($arrSave)

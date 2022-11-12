@@ -65,6 +65,8 @@ $routes->post('/save-produk', 'Produk::save');
 $routes->post('/save-detail-produk', 'Detailproduk::save');
 $routes->post('/save-client', 'Client::save');
 
+$routes->get('test','Home::test');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
