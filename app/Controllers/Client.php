@@ -25,16 +25,35 @@ class Client extends BaseController
 
         if($this->request->getMethod()=="post")
         {
-            $dataSave=array(
-                'idClient' => '',
-                'namaClient' => $this->request->getPost('namaClient'),
-                'createdAt' => date('d-m-Y H:i:s'),
-                'updatedAt' => date('d-m-Y H:i:s'),
-            );
+            $rules = [
+                'namaClient'=>[
+                    'label' =>'Nama Client',
+                    'rules'	=>'required',
+                    'errors'	=>['required'=>'Nama client harus diisi']
+                ],
+            ];
 
-            $id = $this->objClient->saveData($dataSave);
+            if($this->validate($rules))
+			{
+                $dataSave=array(
+                    'idClient' => $this->request->getPost('idClient'),
+                    'namaClient' => $this->request->getPost('namaClient'),
+                    'createdAt' => date('d-m-Y H:i:s'),
+                    'updatedAt' => date('d-m-Y H:i:s'),
+                );
+    
+                $id = $this->objClient->saveData($dataSave);
+                $this->session->setFlashdata('message','Input client berhasil');
+    
+                dd($id);
+            }
+            else
+            {
+                $data['validation']	= $this->validator;
+                $data['page'] = 'client_form';
 
-            dd($id);
+                return view('mainpage',$data);
+            }
         }
         else
         {

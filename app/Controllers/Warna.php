@@ -26,17 +26,41 @@ class Warna extends BaseController
 
         if($this->request->getMethod()=="post")
         {
-            $dataSave=array(
-                'id' => $this->request->getPost('id'),
-                'printName' => $this->request->getPost('printName'),
-                'printPrefix' => $this->request->getPost('printPrefix'),
-                'createdAt' => date('Y-m-d H:i:s'),
-                'updatedAt' => date('Y-m-d H:i:s'),
-            );
+            $rules = [
+                'printName'=>[
+                    'label' =>'Nama Warna',
+                    'rules'	=>'required',
+                    'errors'	=>['required'=>'Warna harus diisi']
+                ],
+                'printPrefix'=>[
+                    'label' =>'Prefix',
+                    'rules'	=>'required',
+                    'errors'	=>['required'=>'Prefix harus diisi']
+                ],
+            ];
 
-            $id = $this->objPrint->saveData($dataSave);
+            if($this->validate($rules))
+			{
+                $dataSave=array(
+                    'id' => $this->request->getPost('id'),
+                    'printName' => $this->request->getPost('printName'),
+                    'printPrefix' => $this->request->getPost('printPrefix'),
+                    'createdAt' => date('Y-m-d H:i:s'),
+                    'updatedAt' => date('Y-m-d H:i:s'),
+                );
+    
+                $id = $this->objPrint->saveData($dataSave);
+                $this->session->setFlashdata('message','Input Data Sukses');
+    
+                return redirect()->to(base_url().'/warna');
+            }
+            else
+            {
+                $data['validation']	= $this->validator;
+                $data['page'] = 'warna_form';
 
-            return redirect()->to(base_url().'/warna');
+                return view('mainpage',$data);
+            }
         }
         else
         {

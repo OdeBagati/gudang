@@ -30,7 +30,7 @@ class Barcode extends BaseController
         if($this->request->getMethod()=="post")
         {
             $dataSave=array(
-                'productionId' => '',
+                'productionId' => $this->request->getPost('productionId'),
                 'productionProcess' => $this->request->getPost('productionProcess'),
                 'productionStatus' => $this->request->getPost('productionStatus'),
                 'productionCode' => $this->request->getPost('productionCode'),

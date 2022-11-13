@@ -25,16 +25,35 @@ class Family extends BaseController
 
         if($this->request->getMethod()=="post")
         {
-            $dataSave=array(
-                'id' => '',
-                'familyName' => $this->request->getPost('clientName'),
-                'createdAt' => date('d-m-Y H:i:s'),
-                'updatedAt' => date('d-m-Y H:i:s'),
-            );
+            $rules = [
+                'familyName'=>[
+                    'label' =>'Nama Family',
+                    'rules'	=>'required',
+                    'errors'	=>['required'=>'Nama family harus diisi']
+                ],
+            ];
 
-            $id = $this->objFamily->saveData($dataSave);
+            if($this->validate($rules))
+			{
+                $dataSave=array(
+                    'id' => $this->request->getPost('id'),
+                    'familyName' => $this->request->getPost('clientName'),
+                    'createdAt' => date('d-m-Y H:i:s'),
+                    'updatedAt' => date('d-m-Y H:i:s'),
+                );
+    
+                $id = $this->objFamily->saveData($dataSave);
+                $this->session->setFlashdata('message','Input data berhasil');
+    
+                dd($id);
+            }
+            else
+            {
+                $data['validation']	= $this->validator;
+                $data['page'] = 'family_form';
 
-            dd($id);
+                return view('mainpage',$data);
+            }
         }
         else
         {
