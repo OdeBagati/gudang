@@ -16,16 +16,28 @@
                 <img src="<?= base_url(); ?>/assets/img/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 Bootstrap
             </a>
-            <div class="collapse navbar-collapse justify-content-end text-center" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end text-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item me-2">
                         <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>">Process</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link active" href="#">Features</a>
+                        <a class="nav-link active" href="<?= base_url(); ?>/family">Family</a>
+                    </li>
+                    <li class="nav-item me-2 dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Produk
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= base_url(); ?>/produk">Produk</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url(); ?>/detail-produk">Detail Produk</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link active" href="#">Pricing</a>
+                        <a class="nav-link active" href="<?= base_url(); ?>/warna">Warna</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link active" href="<?= base_url(); ?>/client">Client</a>
                     </li>
                 </ul>
             </div>

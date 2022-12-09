@@ -35,17 +35,17 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Barcode::index');
+$routes->get('/', 'Barcode::index'); // udah
 $routes->get('/save-barcode', 'Barcode::save');
 $routes->get('/preview', 'Barcode::preview');
-$routes->get('/produk', 'Produk::index');
-$routes->get('/detail-produk', 'Detailproduk::index');
+$routes->get('/produk', 'Produk::index'); // udah
+$routes->get('/detail-produk', 'Detailproduk::index');// udah
 $routes->get('/save-produk', 'Produk::save');
 $routes->get('/save-detail-produk', 'Detailproduk::save');
-$routes->get('/warna', 'Warna::index');
+$routes->get('/warna', 'Warna::index'); // udah
 $routes->get('/save-warna', 'Warna::save');
 $routes->get('/save-client', 'Client::save');
-$routes->get('/client', 'Client::index');
+$routes->get('/client', 'Client::index'); // udah
 
 $routes->get('/save-barcode/(:num)', 'Barcode::save/$1');
 $routes->get('/delete-barcode/(:num)', 'Barcode::delete/$1');
